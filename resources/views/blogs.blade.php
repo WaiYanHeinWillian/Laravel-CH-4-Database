@@ -4,12 +4,17 @@
         </x-slot>
         @foreach($blogs as $blog)
         <div>
-        <h1><a href="blogs/{{$blog->id}}">
+            <h1><a href="blogs/{{$blog->slug}}">
             {{$blog->title}}
             </a></h1>
+            <h4>Author : <a href="/users/{{ $blog->author->username }}">{{ $blog->author->name  }}</a></h4>
+
+            <p>
+                <a href="/categories/{{ $blog->category->slug }}">{{ $blog->category->name }}</a>
+            </p>
         
         <div>
-            <p> Publish at - {{$blog->date}}</p>
+            <p> Publish at - {{$blog->created_at->diffForHumans()}}</p>
             <p>{{$blog->intro}}</p>
         </div>
         </div>
