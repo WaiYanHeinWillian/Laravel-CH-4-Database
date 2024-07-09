@@ -26,17 +26,20 @@
 
 
 <x-layout>
-    <!-- navbar -->
     
+    @if (session('success'))
+        <div class="alert alert-success text-center">{{ session('success') }}</div>
+    @endif
     <!-- hero section -->
     <x-hero></x-hero>
 
     <!-- blogs section -->
     <x-blogs-section 
     :blogs="$blogs" 
-    :categories="$categories"
-    :currentCategory="$currentCategory ?? null"
     />
+    {{-- :categories="$categories"
+    :currentCategory="$currentCategory ?? null" --}}
+    
 
     
 
